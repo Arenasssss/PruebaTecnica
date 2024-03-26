@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Arenas Sena</title>
+</head>
+<body>
+    <script>
+        var Casilla = 0 //Establezco la posicion incial
+var termino = true  //Establezco el parametro Principal para que ejecute el ciclo
+//Imprimo Informacion sobre la ubicacion de las escaleras y serpintes
+console.log("Advertencia el número maximo de casilla es 25;");
+console.log("iniciaras en la casilla Número 0;");
+console.log("El tablero se compone en un bloque 5X5; 5 casillas de alto y 5 casilas de ancho");
+console.log("La ubicacion de las escaleras son: casilla 3 te lleva al 11; casilla 6 al 17; casilla 9 al 18; casilla 10 al 12;");
+console.log("La ubicacion de las serpientes son: casilla 22 te lleva al 20; casilla 24 al 16; casilla 19 al 8; casilla 14 al 4;");
+//Creo el ciclo donde se va a ejecutar el juego en este caso uso el while para que se realice mientras sea verdadero
+while (termino == true) {
+    let dados = Math.floor(Math.random() * (6 - 1 + 1) + 1); //En esta variable establezco un numero random con parametros del 1 al 6
+    //Hago la comparacion haber si ya llego a 25 para cambiar el estado de la variable de true a false
+    if (Casilla == 25) {
+        termino = false
+        console.log("Ganaste Se acabo el Juego");
+    }
+    //Hago la comparacion haber si supero el valor de  25
+    else if (Casilla > 25) {
+        //Primero saco la diferencia de por cuantos se pasox}
+        let diferencia = Casilla - 25
+        //Y luego se los resto a la casilla 2 veces para que la primera quede en 25 y luego se resta lo que se paso
+        Casilla = Casilla - diferencia - diferencia
+        console.log( "Llego a mas de 25, se devuelva a la casilla ", Casilla);
+    }
+    else{
+        //En los switch case lo que hago es distribuirlos para el caso de que pisen una escalera o una serpiente
+        switch (Casilla) {
+            //Aqui inicia los casos de caer en Escalera
+            //En caso de que el número de casilla sea igual al los ya mencionados antes, este tomara el valor de la casilla en la cual sube
+            case 3:
+                console.log('Subio desde la casilla ', Casilla, 'por la Escalera a la número', 11);
+                Casilla = 11
+                break;
+            case 6:
+                console.log('Subio desde la casilla ', Casilla, 'por la Escalera a la número', 17);
+                Casilla = 17
+                break;
+            case 9:
+                console.log('Subio desde la casilla ', Casilla, 'por la Escalera a la número', 18);
+                Casilla = 18
+                break;
+            case 10:
+                console.log('Subio desde la casilla ', Casilla, 'por la Escalera a la número', 12);
+                Casilla = 12
+                break;
+                //Aqui inicia los casos de caer en serpiente
+                //En caso de que el número de casilla sea igual al los ya mencionados antes, este tomara el valor de la casilla en la cual sube
+            case 22:
+                console.log('Bajo desde la casilla ', Casilla, 'por la Serpiente a la número', 20);
+                Casilla = 20
+                break;
+            case 24:
+                console.log('Bajo desde la casilla ', Casilla, 'por la Serpiente a la número', 16);
+                Casilla = 16
+                break;
+            case 19:
+                console.log('Bajo desde la casilla ', Casilla, 'por la Serpiente a la número', 8);
+                Casilla = 8
+                break;
+            case 14:
+                console.log('Bajo desde la casilla ', Casilla, 'por la Serpiente a la número', 4);
+                Casilla = 4
+                break;
+            // En caso de que no se haya cumplido ninguna, se realiza la operacion de suma normal con el dado
+            default: Casilla += dados
+            console.log("Resultado del dado: ", dados);
+            console.log("Pasa a la casilla ", Casilla);
+                break;
+        }
+        
+
+    }
+    
+}
+    </script>
+</body>
+</html>
